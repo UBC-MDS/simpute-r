@@ -20,5 +20,7 @@ output data tibble after imputation
 Imputation function for a numerical column
 }
 \examples{
-num_imputer(input_tibble, col_name, "mean")
+a <- 1:5
+input_tibble <- data.frame(a, a * 2)
+num_imputer(input_tibble, "col_name", "mean")
 }
