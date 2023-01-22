@@ -9,6 +9,6 @@
 #' @examples
 #' input_df <- data.frame(a = c('BC', 'BC', 'ON', 'AB', NaN))
 #' bol_imputer(input_df, "a", "knn")
-bol_imputer <- function(x, col, method) {
+cat_imputer <- function(x, col, method) {
   x
 }
