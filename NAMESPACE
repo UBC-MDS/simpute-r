@@ -2,4 +2,5 @@
 
 export(bol_imputer)
 export(cat_imputer)
+export(date_imputer)
 export(num_imputer)
