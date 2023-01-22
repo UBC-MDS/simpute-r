@@ -1,3 +1,3 @@
-date_imputer <- function(x, col, method) {
+all_imputer <- function(x, col, method) {
   x
 }
