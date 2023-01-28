@@ -27,7 +27,7 @@ We have four main functions dealing with each data type:
 
 ## Within the R Ecosystem
 
-There are several useful packages in the R ecosystem for imputing data. For example, [MICE](https://github.com/amices/mice) is a powerful package that allows multiple imputations with values drawn from a distribution of the data. The [Hmisc](https://github.com/harrelfe/Hmisc) package contains an impute function using methods of additive regression, bootstrapping, and predictive mean matching. As well, users may use base R or the [dplyr](https://dplyr.tidyverse.org/) package to filter out for missing values and replace them manually. However, our package aims to simplify this process and make the process easier and quicker for the general public. 
+There are several useful packages in the R ecosystem for imputing data. For example, [MICE](https://github.com/amices/mice) is a powerful package that allows multiple imputations with values drawn from a distribution of the data. The [Hmisc](https://github.com/harrelfe/Hmisc) package contains an impute function using methods of additive regression, bootstrapping, and predictive mean matching. As well, users may use base R or the [dplyr](https://dplyr.tidyverse.org/) package to filter out for missing values and replace them manually. However, our package aims to simplify this process and make the process easier and quicker for use by the general public. 
 
 ## Contributing
 
