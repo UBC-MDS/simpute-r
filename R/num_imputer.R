@@ -8,7 +8,7 @@ library(dplyr)
 #' @return output data tibble after imputation
 #' @export
 #' @examples
-#' input_df <- data.frame(a = c(1,2,3,4,5,6))
+#' input_df <- data.frame(a = c(1,2,3,4,5,6, NA))
 #' num_imputer(input_df, "a")
 num_imputer <- function(x, col) {
  # check the input data frame is a dataframe
@@ -36,14 +36,14 @@ num_imputer <- function(x, col) {
   col_arg <- substitute(col)
 
   ## find the impute column
-  num_col<-c(x|>select(col_arg)|>pull())
-  
+  num_col<-c(x|>dplyr::select(col_arg)|>dplyr::pull())
+
   ## calculate the mean
-  num_col[[which(rowSums(is.na(x|>select(col)))!=0)]]<-median(x |> drop_na(col)|>select(col)|>pull())
+  num_col[[which(rowSums(is.na(x|>dplyr::select(col)))!=0)]]<-median(x |> tidyr::drop_na(col)|>dplyr::select(col)|>dplyr::pull())
 
   ## impute
   x[col]<-num_col
-  
+
   return(x)
 
 }

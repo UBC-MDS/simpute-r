@@ -4,14 +4,12 @@
 \alias{num_imputer}
 \title{Imputation function for a numerical column}
 \usage{
-num_imputer(x, col, method)
+num_imputer(x, col)
 }
 \arguments{
 \item{x}{input data tibble}
 
-\item{col}{name of the column to modify}
-
-\item{method}{name of the imputing strategy. They include \link{'knn','quant_rand','mean','median','mode','bayes'}, the default method is knn.}
+\item{col}{name of the column to modify and that should be a string or charactor}
 }
 \value{
 output data tibble after imputation
@@ -20,7 +18,6 @@ output data tibble after imputation
 Imputation function for a numerical column
 }
 \examples{
-a <- 1:5
-input_tibble <- data.frame(a, a * 2)
-num_imputer(input_tibble, "col_name", "mean")
+input_df <- data.frame(a = c(1,2,3,4,5,6, NA))
+num_imputer(input_df, "a")
 }
