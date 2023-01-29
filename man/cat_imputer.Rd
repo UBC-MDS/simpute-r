@@ -2,24 +2,22 @@
 % Please edit documentation in R/cat_imputer.R
 \name{cat_imputer}
 \alias{cat_imputer}
-\title{Imputation function for a categorical column}
+\title{Imputation function for a categorical column using the most frequent value}
 \usage{
-cat_imputer(x, col, method)
+cat_imputer(x, col)
 }
 \arguments{
 \item{x}{input data tibble}
 
 \item{col}{name of the column to modify}
-
-\item{method}{name of the imputing strategy. They include \link{'knn', 'rand', 'frequent', and 'bayes'}.}
 }
 \value{
 output data tibble after imputation
 }
 \description{
-Imputation function for a categorical column
+Imputation function for a categorical column using the most frequent value
 }
 \examples{
-input_df <- data.frame(a = c('BC', 'BC', 'ON', 'AB', NaN))
-bol_imputer(input_df, "a", "knn")
+input_df <- data.frame(a = c('BC', 'BC', 'ON', 'AB', NA))
+cat_imputer(input_df, "a")
 }

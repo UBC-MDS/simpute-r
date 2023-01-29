@@ -4,12 +4,12 @@
 \alias{bol_imputer}
 \title{Imputation function for a boolean column}
 \usage{
-bol_imputer(x, col, method)
+bol_imputer(x, c, method = "mode")
 }
 \arguments{
 \item{x}{input data tibble}
 
-\item{col}{name of the column to modify}
+\item{c}{name of the logical class or boolean column to modify}
 
 \item{method}{name of the imputing strategy. They include \link{'mode'}.}
 }
@@ -20,6 +20,6 @@ output data tibble after imputation
 Imputation function for a boolean column
 }
 \examples{
-input_df <- data.frame(a = c(TRUE,FALSE, TRUE), b = c(TRUE,FALSE, ""))
-bol_imputer(input_df, "col_name", "mode")
+input_df <- data.frame(a = c(TRUE,FALSE, TRUE), b = c(TRUE,FALSE, NA))
+bol_imputer(input_df, "b", "mode")
 }
