@@ -1,3 +1,7 @@
+library(dplyr)
+library(readr)
+library(tidyverse)
+
 #' Imputation function for a boolean column
 #'
 #' @param x input data tibble
@@ -7,12 +11,8 @@
 #' @return output data tibble after imputation
 #' @export
 #' @examples
-#' input_df <- data.frame(a = c(TRUE,FALSE, TRUE), b = c(TRUE,FALSE, ""))
-#' bol_imputer(input_df, "col_name", "mode")
-library(dplyr)
-library(readr)
-library(tidyverse)
-
+#' input_df <- data.frame(a = c(TRUE,FALSE, TRUE), b = c(TRUE,FALSE, NA))
+#' bol_imputer(input_df, "b", "mode")
 bol_imputer <- function(x, c, method = 'mode') {
     # check the input dataframe is a dataframe
     if (!is.data.frame(x)) {
@@ -39,8 +39,8 @@ bol_imputer <- function(x, c, method = 'mode') {
 
     #Check if column contains boolean values
     if (class(x[[c]]) != "logical") {
-    stop("This column is not a boolean column.")
-      }
+      stop("This column is not a boolean column.")
+    }
 
     true_val <- x |> filter(c == TRUE) |> nrow()
     false_val <- x |> filter(c == FALSE) |> nrow()
