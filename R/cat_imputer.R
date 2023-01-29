@@ -1,8 +1,4 @@
-library(dplyr)
-library(readr)
-library(tidyverse)
-```
-```{r}
+
 #' Imputation function for a categorical column using the most frequent value
 #'
 #' @param x input data tibble
@@ -13,6 +9,9 @@ library(tidyverse)
 #' @examples
 #' input_df <- data.frame(a = c('BC', 'BC', 'ON', 'AB', NaN))
 #' bol_imputer(input_df, "a", "knn")
+
+library(tidyverse)
+library(dplyr)
 
 cat_imputer <- function(x, col) {
   # check the input data frame is a dataframe
