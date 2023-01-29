@@ -1,4 +1,3 @@
-
 #' Imputation function for a categorical column using the most frequent value
 #'
 #' @param x input data tibble
@@ -43,7 +42,6 @@ cat_imputer <- function(x, col) {
   x[[col_arg]][x[[col_arg]] %in% c("NA", "na", "n/a", "nan", "N/A", "not available", "Not available", "Not
                Available", "-", "--", "---")] <- NA
   
-  x[[col_arg]] <- as.factor(x[[col_arg]])
   
   ## find most frequent value
   most_freq <- names(sort(-table(x[[col_arg]])))[1]
