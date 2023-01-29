@@ -3,7 +3,7 @@ library(dplyr)
 #' Imputation function for a numerical column
 #'
 #' @param x input data tibble
-#' @param col name of the column to modify
+#' @param col name of the column to modify and that should be a string or charactor
 
 #' @return output data tibble after imputation
 #' @export
@@ -35,12 +35,15 @@ num_imputer <- function(x, col) {
   }
   col_arg <- substitute(col)
 
-  ## find mean value
-  col_mean <- mean(x[[col_arg]])
-  col_mean
+  ## find the impute column
+  num_col<-c(x|>select(col_arg)|>pull())
+  
+  ## calculate the mean
+  num_col[[which(rowSums(is.na(x|>select(col)))!=0)]]<-median(x |> drop_na(col)|>select(col)|>pull())
 
   ## impute
-  x[[col_arg]][is.na(x[[col_arg]])] <- col_mean
+  x[col]<-num_col
+  
   return(x)
 
 }
