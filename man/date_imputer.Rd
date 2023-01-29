@@ -4,7 +4,7 @@
 \alias{date_imputer}
 \title{Imputation function for a date column}
 \usage{
-date_imputer(x, col, method)
+date_imputer(x, col, method = "median")
 }
 \arguments{
 \item{x}{input data tibble}
@@ -20,6 +20,6 @@ output data tibble after imputation
 Imputation function for a date column
 }
 \examples{
-input_df <- data.frame(a = (c(as.Date('1990/02/17'), as.Date('1991/02/17'), NaN, as.Date('1992/02/17'))))
+input_df <- data.frame(a = (c(as.Date('1990/02/17'), as.Date('1991/02/17'), NA, as.Date('1992/02/17'))))
 date_imputer(input_df, "a", "median")
 }
