@@ -33,7 +33,6 @@ num_imputer <- function(x, col) {
   if (sum(is.na(x[[col_arg]])) == 0) {
     stop("There is no missing data in the specified column.")
   }
-
 col_arg <- substitute(col)
 
   
