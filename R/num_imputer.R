@@ -36,10 +36,10 @@ num_imputer <- function(x, col) {
   col_arg <- substitute(col)
 
   ## find the impute column
-  num_col<-c(x|>dplyr::select(col_arg)|>dplyr::pull())
+  num_col<-c(x|>dplyr::select(dplyr::all_of(col_arg))|>dplyr::pull())
 
   ## calculate the mean
-  num_col[[which(rowSums(is.na(x|>dplyr::select(col)))!=0)]]<-median(x |> tidyr::drop_na(col)|>dplyr::select(col)|>dplyr::pull())
+  num_col[[which(rowSums(is.na(x|>dplyr::select(dplyr::all_of(col))))!=0)]]<-median(x |> tidyr::drop_na(dplyr::all_of(col))|>dplyr::select(dplyr::all_of(col))|>dplyr::pull())
 
   ## impute
   x[col]<-num_col
