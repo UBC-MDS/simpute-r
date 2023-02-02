@@ -11,7 +11,7 @@ date_imputer(x, col, method = "median")
 
 \item{col}{name of the column to modify}
 
-\item{method}{name of the imputing strategy. They include \link{'rand', 'frequent', and 'median'}.}
+\item{method}{name of the imputing strategy.}
 }
 \value{
 output data tibble after imputation

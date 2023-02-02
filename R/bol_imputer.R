@@ -4,7 +4,7 @@ library(dplyr)
 #'
 #' @param x input data tibble
 #' @param c name of the logical class or boolean column to modify
-#' @param method name of the imputing strategy. They include ['mode'].
+#' @param method name of the imputing strategy.
 #'
 #' @return output data tibble after imputation
 #' @export

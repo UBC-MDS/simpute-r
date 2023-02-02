@@ -5,7 +5,7 @@ library(lubridate)
 #'
 #' @param x input data tibble
 #' @param col name of the column to modify
-#' @param method name of the imputing strategy. They include ['rand', 'frequent', and 'median'].
+#' @param method name of the imputing strategy.
 #'
 #' @return output data tibble after imputation
 #' @export
