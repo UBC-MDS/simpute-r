@@ -11,7 +11,7 @@ bol_imputer(x, c, method = "mode")
 
 \item{c}{name of the logical class or boolean column to modify}
 
-\item{method}{name of the imputing strategy. They include \link{'mode'}.}
+\item{method}{name of the imputing strategy.}
 }
 \value{
 output data tibble after imputation
