@@ -1,6 +1,3 @@
-library(tidyverse)
-library(dplyr)
-
 #' Imputation function for a categorical column using the most frequent value
 #'
 #' @param x input data tibble
