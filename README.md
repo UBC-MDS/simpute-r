@@ -31,12 +31,22 @@ We have four main functions dealing with each data type:
 
 ## Installation
 
-You can install the development version of Simpute from GitHub with:
+If you do not have the devtools package, you can install it via CRAN with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("https://github.com/UBC-MDS/simpute-r.git")
+install.packages("devtools")
 ```
+Then you can install Simpute from GitHub as follows using the `R` consle:
+
+``` r
+devtools::install_github("UBC-MDS/simpute-r")
+```
+Lastly, load the package:
+
+``` r
+library(simpute-r)
+```
+
 ## Demonstration
 
 For this demonstration, we will use this sample dataset `cars` containing `NA`s:
