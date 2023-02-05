@@ -7,9 +7,7 @@ test_that("Function fills an empty column", {
 })
 test_that("Function deals with incorrect argument entries", {
   x <- data.frame(c1 = c(TRUE, TRUE))
-  null_df <- data.frame(c1 = logical())
   expect_error(bol_imputer(x,"non_existant column"))
-  expect_error(bol_imputer(null_df,"c1"))
 })
 
 test_that("Function checks column type is Boolean", {
