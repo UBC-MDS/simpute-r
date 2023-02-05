@@ -1,0 +1,82 @@
+---
+title: "Guide to using Simpute"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Guide to using Simpute}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## What is Simpute?
+
+Simpute was designed to be a simple imputation package. If you have data where some rows are blank or "N/A", you can use this simple package to fill in those gaps and make your data frame whole or clean. It was made to be easy to understand and directed towards users who are just learning to use R. If that's you, please read below to learn about how you can use it.
+
+To get started, please load our package using the code below. 
+
+
+```{r setup}
+library(simpute)
+```
+
+## Imputation Functions
+
+We have several different types of imputation functions you can use, depending on the kind of data you would like to impute. These are as follows:
+
+1.`Num_imputer` - This function is used for any column that contains integer values or decimal numbers. It will impute any empty (or "N/A") data rows with the average value of that column.\
+2.`Cat_imputer` - This function is used for any columns with categorical values. It will impute any blank values with the most frequent category found in that column.\
+3.`Bol_imputer` - This function is for use with a boolean ("TRUE" or "FALSE") column in your dataframe. It will impute any blank values with the most frequent of the TRUE or FALSE values found in the column. With the method argument = 'mode'.\
+4. `Date_imputer` - This final function is to be used for imputation of any blank or empty dates in your data frame.It will populate blank date cells with the median date. With a the method argument = 'median'.
+
+## Function Arguments
+
+All our functions use the same arguments in order to maintain simplicity. You have three components `function()`, `data`, `"column"`, and `method` (found in the `bol_imputer` and `date_imputer` functions).
+
+The data entered must be a dataframe or tibble. The column name supplied should be in a string format and be found within the data provided, otherwise an error will appear. Lastly, for the `bol_imputer` and `date_imputer` functions we also have a method argument, which is defaulted to 'mode' for `bol_imptuer` and 'median' for `date_imputer`, we hope to add more flexibility and method functions in the future.
+
+## Examples on How to use it
+
+To try out our function we encourage you to follow along with this exercise set up below. First, we will create a test data frame to use.
+
+```{r}
+test_df <- data.frame( 
+  'Origin' = c("Canada", "Japan", "Japan", "Japan", "Germany", NA), 
+  'Speed'= c(NA, 2, 2, 2, 1, 1), 
+  'OnTheMarket' = c(FALSE, FALSE, NA, TRUE, FALSE, NA), 
+  'Date' = lubridate::as_date(c("4/2/2013", "4/2/2014", "01/29/2023", "4/2/2016", NA, "01/29/2023"), format = "%m/%d/%Y")
+  )
+```
+
+First, we will apply the categorical imputer on the first column.
+
+```{r}
+impu_cat <- cat_imputer(test_df, "Origin") 
+print(impu_cat)
+```
+
+Next we will apply the numeric imputer by running the following and printing the output.
+
+```{r}
+impu_num <- num_imputer(test_df, "Speed") 
+print(impu_num)
+```
+
+Test the boolean imputer by running the following and printing the output.
+
+```{r}
+impu_bol <- bol_imputer(test_df, 'OnTheMarket') 
+print(impu_bol)
+```
+
+Last, but not least test out the date imputer. Kindly note that for date imputer to work, we must first convert the column to a date format, please ensure it is not a string.
+
+```{r}
+impu_dat <- date_imputer(test_df, "Date")
+print(impu_dat)
+```
