@@ -2,7 +2,7 @@
 title: "Guide to using Simpute"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{my-vignette}
+  %\VignetteIndexEntry{Guide to using Simpute}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -35,9 +35,7 @@ We have several different types of imputation functions you can use, depending o
 
 ## Function Arguments
 
-All our functions use the same arguments in order to maintain simplicity. You have three components `function()`, `data`, `"column"`, and `method` (found in the `bol_imputer` and `date_imputer` functions). This is shown below.
-
-    function(data_frame, "column_name", method = 'method')
+All our functions use the same arguments in order to maintain simplicity. You have three components `function()`, `data`, `"column"`, and `method` (found in the `bol_imputer` and `date_imputer` functions).
 
 The data entered must be a dataframe or tibble. The column name supplied should be in a string format and be found within the data provided, otherwise an error will appear. Lastly, for the `bol_imputer` and `date_imputer` functions we also have a method argument, which is defaulted to 'mode' for `bol_imptuer` and 'median' for `date_imputer`, we hope to add more flexibility and method functions in the future.
 
@@ -71,7 +69,7 @@ print(impu_num)
 Test the boolean imputer by running the following and printing the output.
 
 ```{r}
-impu_bol <- bol_imputer(test_df, "OntheMarket") 
+impu_bol <- bol_imputer(test_df, 'OnTheMarket') 
 print(impu_bol)
 ```
 
