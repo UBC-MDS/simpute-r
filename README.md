@@ -27,7 +27,7 @@ We have four main functions dealing with each data type:
 
 -   `Date_imputer`: This function fills in empty values of a date column with median point of the range of dates in that column.
 
-For more information and examples, please go [here](file:///C:/Users/lisaa/UBC_Lab_Block_4/DSCI_524_collab_sw/simpute-r/docs/index.html).
+For more information and examples, please go [here](https://ubc-mds.github.io/simpute-r/articles/my-vignette.html).
 
 ## Installation
 
