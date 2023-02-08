@@ -27,9 +27,6 @@ bol_imputer <- function(x, c, method = 'mode') {
       stop("The given column name must exist in the given dataframe.")
     }
 
-    # Change any empty string values to NA
-    x <- x |> dplyr::mutate_all(dplyr::na_if,"")
-
     # Check there are missing values in the column
     if (sum(is.na(x[[c]])) == 0) {
       stop("There is no missing data in the specified column.")
